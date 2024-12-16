@@ -29,10 +29,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# SECURITY WARNING: Cloudinary configuration
+CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-willwhyd-reindeerradar-4958ydmonhb.ws.codeinstitute-ide.net', 'reindeer-radar-86c1994b9733.herokuapp.com']
+ALLOWED_HOSTS = ['8000-willwhyd-reindeerradar-4958ydmonhb.ws.codeinstitute-ide.net', 'reindeer-radar-86c1994b9733.herokuapp.com', '.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net',
                         'https://*.herokuapp.com']
