@@ -4,44 +4,52 @@
 
 {% block content %}
 
-
 <div>
 
     <!-- Household List Column. -->
     <div class="row justify-content-center">
-        {% for household in households %}
-        <div class="col-md-10 mb-3">
-            <div class="card mb-10 household-item" data-id="{{ household.id }}">
-                <div class="row">
-                    <div class="col-md-9 ">
-                        <h3 class="card-title pt-2 pb-2">{{ household.name }}</h3>
-                        <p class="card-text text-muted h6">{{ household.city }} </p>
+        <div class="col-md-8 m-2">
+            {% for household in households %}
+            <div class="col-md-12 mb-3">
+                <div class="card mb-10 household-item" data-id="{{ household.id }}">
+                    <div class="row">
+                        <div class="col-md-9 ">
+                            <h3 class="card-title pt-2 pb-2">{{ household.name }}</h3>
+                            <p class="card-text text-muted h6">{{ household.city }} </p>
 
-                        <input type="checkbox" class="visited-checkbox" id="{{ household.id }}-checkbox" {% if household.visited %}checked{% endif %}>
-                        <label for="{{ household.id }}-checkbox">Visited: {{ household.visited }}</label>
-                    </div>
+                            <input type="checkbox" class="visited-checkbox" id="{{ household.id }}-checkbox" {% if household.visited %}checked{% endif %}>
+                            <label for="{{ household.id }}-checkbox">Visited: {{ household.visited }}</label>
+                        </div>
 
-                    <div class="col-md-3">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-{{household.id}}">More...</button>
-                    </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse-{{ household.id }}">More...</button>
+                        </div>
 
-                    <div class="collapse" id="collapse-{{household.id}}">
-                        <div class="card-body">
-                            <hr>
-                            
-                            <p class="card-text"> Kid Details Go Here </p>
+                        <div class="collapse" id="collapse-{{ household.id }}">
+                            <div class="card-body">
+                                <hr>
+                                
+                                <p class="card-text"> Kid Details Go Here </p>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
 
-        {% if not households %}
-        <p>You have no homes to visit.</p>
-        {% endif %}
+            {% if not households %}
+            <p>You have no homes to visit.</p>
+            {% endif %}
+        </div>
+        <div class="col-md-2 mt-2 justify-content-start d-flex flex-column align-items-start">
+            
+            <a class="btn btn-primary btn-block" href="#"> Add household</a>
+
+            <div class="align-self-end"><h4>Total Presents Needed:</h4></div>
+        </div>
+        
     </div>
 
 </div>
