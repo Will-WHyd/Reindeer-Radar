@@ -24,6 +24,8 @@
                     </div>
 
                     <div class="col-md-3">
+                        <a href="{% url 'edit_house' household.id %}" class="btn btn-secondary">Edit</a>
+                        <!-- <a href="{% url 'delete_house' household.id %}" class="btn btn-danger">Delete</a> -->
                         <button class="btn btn-info" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-{{household.id}}">More...</button>
                     </div>
@@ -37,6 +39,8 @@
                                     <h4 class="card-text text-muted h6">Name: {{ kids.name }} </h4>
                                     <p class="card-text text-muted h6">{{ kids.age }} years old</p>
                                     <p class="card-text text-muted h6">On the {{ kids.behavior }} list! </p>
+                                    <a href="{% url 'edit_kid' kids.id %}" class="btn btn-secondary">Edit</a>
+                                    <a href="{% url 'delete_kid' kids.id %}" class="btn btn-danger">Delete</a>
                                 </div>
                                 <!-- closing Kids for loop -->
                                 {% endfor %}
@@ -53,7 +57,7 @@
         </div>
         {% endfor %}
 
-        {% if not households %}
+        {% if none %}
         <p>You have no homes to visit.</p>
         {% endif %}
     </div>
