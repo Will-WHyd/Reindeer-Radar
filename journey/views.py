@@ -36,10 +36,10 @@ def add_house(request):
             household.user = request.user
             household.save()
 
-            # messages.add_message(
-            #     request, messages.SUCCESS,
-            #     'New Destination Added! Christmas Joy inbound!'
-            # )
+            messages.add_message(
+                request, messages.SUCCESS,
+                'New Destination Added! Christmas Joy inbound!'
+            )
 
             return redirect('journey')
 
@@ -60,10 +60,10 @@ def add_kid(request, id):
             kid.family = household
             kid.save()
 
-            # messages.add_message(
-            #     request, messages.SUCCESS,
-            #     'New Kid Added to the {{household.name}} house! Christmas Joy inbound!'
-            # )
+            messages.add_message(
+                request, messages.SUCCESS,
+                f'New Kid Added to the { household.name } house! Christmas Joy inbound!'
+            )
 
             return redirect('journey')
 
