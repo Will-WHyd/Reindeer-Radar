@@ -8,7 +8,9 @@
 
     <!-- Household List Column. -->
     <div class="row justify-content-center">
-        {% for household in households %}
+        <a href="{% url 'journey:add' %}" class="btn btn-outline-primary">Add a new home to visit!</a> 
+
+        {% for household in household_list %}
         <div class="col-md-10 mb-3">
             <div class="card mb-10 household-item" data-id="{{ household.id }}">
                 <div class="row">
