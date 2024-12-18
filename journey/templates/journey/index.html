@@ -1,10 +1,154 @@
 {% extends "base.html" %}
+
 {% load static %}
 
-
-
 {% block content %}
+<!-- Auto-Play Christmas Music -->
+<audio autoplay loop>
+    <source src="{% static 'audio/christmas_music.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
-<h1>Hello Django From Heroku</h1>
+<!-- Banner Decoration -->
+<div class="row">
+    <div class="col text-center">
+        <img src="{% static 'images/banner-dec.webp' %}" alt="Holly Decoration" class="img-fluid mb-3">
+    </div>
+</div>
 
+<!-- Page Border Design -->
+{# 
+    Removed or adjusted the page-border to prevent dark overlay.
+    Uncomment the following if you want to keep it with adjusted properties.
+#}
+{# 
+<div class="page-border">
+    <!-- Add your border image or CSS styling here -->
+</div>
+#}
+
+<!-- Snowflakes -->
+<div class="snowflake">❄️</div>
+<div class="snowflake" style="animation-delay: 2s; left: 20%; font-size: 1.2em;">❄️</div>
+<div class="snowflake" style="animation-delay: 4s; left: 40%; font-size: 0.8em;">❄️</div>
+<div class="snowflake" style="animation-delay: 6s; left: 60%; font-size: 1.5em;">❄️</div>
+<div class="snowflake" style="animation-delay: 8s; left: 80%; font-size: 1em;">❄️</div>
+
+<!-- Twinkling Stars -->
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<!-- Full-Width Banner Graphic -->
+<section class="banner text-center">
+    <!-- Optional overlay for better text visibility -->
+    <div class="banner-overlay d-flex justify-content-center align-items-center">
+        <h1 class="text-white">Welcome to Reindeer Radar!</h1>
+    </div>
+</section>
+
+<!-- Hero Section -->
+<section class="jumbotron text-center">
+    <div class="container">
+        <img src="{% static 'images/greentree.webp' %}" alt="Decorative Green Christmas Tree" class="img-fluid mb-3" style="max-width: 150px;">
+        <h1 class="jumbotron-heading">Track Santa's Journey</h1>
+        <p class="lead">Monitor Santa's real-time journey to deliver presents across the globe this Christmas Eve.</p>
+        <a href="#features" class="btn btn-primary my-2">Explore Features</a>
+        
+        {# 
+            Start Tracking Button
+            TODO: Update the href attribute with the correct URL once the 'tracker' page is set up.
+            Example: href="your-tracker-url-here"
+        #}
+        <a href="#" class="btn btn-success my-2">Start Tracking</a>
+    </div>
+</section>
+
+<!-- Embedded Video Section -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="embed-responsive embed-responsive-16by9">
+                <!-- Embedded YouTube Video -->
+                <iframe class="embed-responsive-item" 
+                        src="https://www.youtube.com/embed/lzTQCgpHAWE?autoplay=1&mute=1" 
+                        title="Reindeer Radar Promotional Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section with Graphics -->
+<section id="features" class="container my-5">
+    <div class="row">
+        <!-- Feature 1 -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/gifts1.webp' %}" alt="Real-Time Tracking" class="img-fluid mb-3">
+            <h3>Real-Time Tracking</h3>
+            <p>See Santa's exact location as he travels around the world.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/santapoint.webp' %}" alt="Household Lists" class="img-fluid mb-3">
+            <h3>Household Lists</h3>
+            <p>View lists of households and see which children are receiving presents or coal.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/tree3.webp' %}" alt="Festive Updates" class="img-fluid mb-3">
+            <h3>Festive Updates</h3>
+            <p>Get merry updates and festive surprises throughout the night.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Hanging Presents and Holly Decorations -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col text-center">
+            <img src="{% static 'images/banner_2.webp' %}" alt="Hanging Presents" class="img-fluid mb-3">
+        </div>
+    </div>
+</div>
+
+<!-- Additional Full-Width Banner Graphic (Optional) -->
+<section class="full-width-banner text-center my-5">
+    <!-- Optional overlay -->
+    <div class="banner-overlay d-flex justify-content-center align-items-center">
+        <p class="text-dark mb-0">Enjoy the Magic of Christmas with Reindeer Radar!</p>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<div class="container my-5 text-center">
+    <h2>Join the Christmas Magic!</h2>
+    <p>Be part of the excitement and watch Santa deliver gifts to children around the world in real-time.</p>
+    {# 
+        Get Started Button
+        TODO: Update the href attribute with the correct URL once the 'tracker' page is set up.
+        Example: href="your-tracker-url-here"
+    #}
+    <a href="#" class="btn btn-success btn-lg">Get Started</a>
+</div>
+
+<!-- Full-Width Footer Banner Graphic -->
+<section class="footer-banner text-center">
+    <!-- Optional overlay for better text visibility -->
+    <div class="footer-banner-overlay d-flex justify-content-center align-items-center">
+        <p class="text-white mb-0">Merry Christmas from Reindeer Radar!</p>
+    </div>
+</section>
 {% endblock %}
