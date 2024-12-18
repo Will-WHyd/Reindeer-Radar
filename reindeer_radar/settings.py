@@ -35,7 +35,7 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-willwhyd-reindeerradar-4958ydmonhb.ws.codeinstitute-ide.net', 'reindeer-radar-86c1994b9733.herokuapp.com', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-willwhyd-reindeerradar-4958ydmonhb.ws.codeinstitute-ide.net', '8000-willwhyd-reindeerradar-eehtry767rb.ws.codeinstitute-ide.net', 'reindeer-radar-86c1994b9733.herokuapp.com', '.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net',
                         'https://*.herokuapp.com']
