@@ -53,7 +53,7 @@ def add_kid(request, id):
     k_form = KidForm()
 
     if request.method == 'POST':
-        k_form = HouseholdForm(request.POST)
+        k_form = KidForm(request.POST)
         if k_form.is_valid():
             kid = k_form.save(commit=False)
             kid.user = request.user
