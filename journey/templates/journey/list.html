@@ -8,7 +8,7 @@
 
     <!-- Household List Column. -->
     <div class="row justify-content-center">
-        <a href="{% url 'journey:add' %}" class="btn btn-outline-primary">Add a new home to visit!</a> 
+        <a href="{% url 'add_house' %}" class="btn btn-outline-primary">Add a new home to visit!</a> 
 
         {% for household in household_list %}
         <div class="col-md-10 mb-3">
@@ -32,7 +32,14 @@
                             <hr>
                             
                             <p class="card-text"> Kid Details Go Here </p>
-
+                            {% for kids in household_list.kids %}
+                            
+                            <!-- closing Kids for loop -->
+                            {% endfor %} 
+                            {% if not kids in household_list.kids %}
+                            <p>You have no kids in this home to visit.</p>
+                            {% endif %}
+                            <a href="{% url 'add_kid' household.id %}" class="btn btn-outline-primary">Add Kids!</a>
                         </div>
                     </div>
                 </div>
