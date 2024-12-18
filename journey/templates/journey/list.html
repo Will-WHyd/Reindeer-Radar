@@ -8,36 +8,50 @@
 
     <!-- Household List Column. -->
     <div class="row justify-content-center">
-        <div class="col-md-8 m-2">
-            {% for household in households %}
-            <div class="col-md-12 mb-3">
-                <div class="card mb-10 household-item" data-id="{{ household.id }}">
-                    <div class="row">
-                        <div class="col-md-9 ">
-                            <h3 class="card-title pt-2 pb-2">{{ household.name }}</h3>
-                            <p class="card-text text-muted h6">{{ household.city }} </p>
+        <a href="{% url 'add_house' %}" class="btn btn-primary">Add a new home to visit!</a>
 
-                            <input type="checkbox" class="visited-checkbox" id="{{ household.id }}-checkbox" {% if household.visited %}checked{% endif %}>
-                            <label for="{{ household.id }}-checkbox">Visited: {{ household.visited }}</label>
-                        </div>
+        {% for household in household_list %}
+        <div class="col-md-10 mb-3">
+            <div class="card mb-10 household-item" data-id="{{ household.id }}">
+                <div class="row">
+                    <div class="col-md-9 ">
+                        <h3 class="card-title pt-2 pb-2">{{ household.name }}</h3>
+                        <p class="card-text text-muted h6">{{ household.city }} </p>
 
-                        <div class="col-md-3">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse-{{ household.id }}">More...</button>
-                        </div>
+                        <input type="checkbox" class="visited-checkbox" id="{{ household.id }}-checkbox"
+                            {% if household.visited %}checked{% endif %}>
+                        <label for="{{ household.id }}-checkbox">Visited: {{ household.visited }}</label>
+                    </div>
 
-                        <div class="collapse" id="collapse-{{ household.id }}">
-                            <div class="card-body">
-                                <hr>
-                                
-                                <p class="card-text"> Kid Details Go Here </p>
+                    <div class="col-md-3">
+                        <button class="btn btn-info" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{household.id}}">More...</button>
+                    </div>
+                    <div class="collapse" id="collapse-{{household.id}}">
+                        <div class="card-body">
+                            <hr>
+                            <div class="row">
+
+                                {% for kids in household.kids.all %}
+                                <div class="col-md-4">
+                                    <h4 class="card-text text-muted h6">Name: {{ kids.name }} </h4>
+                                    <p class="card-text text-muted h6">{{ kids.age }} years old</p>
+                                    <p class="card-text text-muted h6">On the {{ kids.behavior }} list! </p>
+                                </div>
+                                <!-- closing Kids for loop -->
+                                {% endfor %}
 
                             </div>
+
+                            <hr>
+
+                            <a href="{% url 'add_kid' household.id %}" class="btn btn-primary">Add Kids!</a>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
 
             {% if not households %}
             <p>You have no homes to visit.</p>
