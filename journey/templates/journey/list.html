@@ -8,11 +8,14 @@
 
     <!-- Household List Column. -->
     <div class="row justify-content-center">
-        <a href="{% url 'add_house' %}" class="btn btn-primary">Add a new home to visit!</a>
+        <a href="{% url 'add_house' %}" class="btn btn-primary mb-3">Add a new home to visit!</a>
+
+
+    {% if household_list %} 
 
         {% for household in household_list %}
-        <div class="col-md-10 mb-3">
-            <div class="card mb-10 household-item" data-id="{{ household.id }}">
+        <div class="col-md-8 mb-3 household-item card p-3">
+            <div class="mb-8" data-id="{{ household.id }}">
                 <div class="row">
                     <div class="col-md-9 ">
                         <h3 class="card-title pt-2 pb-2">{{ household.name }}</h3>
@@ -53,7 +56,9 @@
         </div>
         {% endfor %}
 
-            {% if not households %}
+
+            {% else %}
+
             <p>You have no homes to visit.</p>
             {% endif %}
         </div>
