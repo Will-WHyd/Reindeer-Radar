@@ -43,3 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleStatus(url) {
     window.location.href = url;
 }
+
+document.getElementById("toggleVisibility").addEventListener("click", () => {
+    // Get all cards and their associated checkboxes
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      const checkbox = card.querySelector(".visited-checkbox");
+      // Toggle visibility based on checkbox state
+      if (checkbox.checked) {
+        card.style.display = card.style.display === "none" ? "block" : "none";
+      }
+    });
+  });
