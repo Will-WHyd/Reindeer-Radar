@@ -10,14 +10,16 @@
     <div class="col-md-1 offset-md-1 add-house-div">
         <div class="fixed-list-div">
 
+            <div class="present-counters card">
+                <p id="nice_counter">Number of presents needed: {{ nice_count }}</p>
+                <p id="naughty_counter">Number of coals needed: {{ naughty_count }}</p>
+            </div>
 
             <a href="{% url 'add_house' %}" id="add-house-btn" class="btn btn-primary btn-lg"><i
-                    class="fa-solid fa-plus"></i> <i class="fa-solid fa-house-user"></i></a>
+                class="fa-solid fa-plus"></i> <i class="fa-solid fa-house-user"></i></a>
 
-            <p id="nice_counter">Number of presents needed: {{ nice_count }}</p>
-            <p id="naughty_counter">Number of coals needed: {{ naughty_count }}</p>
             <div class="controls">
-                <button id="toggleVisibility" type="button" class="btn btn-link">
+                <button id="toggleVisibility" type="button" class="btn btn-light">
                     <i class="fa-solid fa-eye"></i>
                 </button>
             </div>
@@ -25,7 +27,7 @@
         </div>
 
     </div>
-    <div class="col-md-8 mb-3">
+    <div class="col-md-8 mb-3 offset-md-1">
         {% for household in household_list %}
         <div class="col-md-10 mb-3">
             <div class="card mb-8 household-item" data-id="{{ household.id }}">
@@ -100,7 +102,7 @@
         </div>
         {% endfor %}
 
-        {% if none %} 
+        {% if none %}
         <p>You have no homes to visit.</p>
         {% endif %}
     </div>
