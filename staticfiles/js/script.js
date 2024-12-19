@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteConfirm.href = "#"; // Reset the href
         
     });
-
-    console.log("Delete Script Loaded")
     
     for (let button of deleteButtons) {
         button.addEventListener("click", (e) => {
