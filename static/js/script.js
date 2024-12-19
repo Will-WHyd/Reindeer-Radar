@@ -7,19 +7,19 @@ function toggleStatus(url) {
 
 // Function for adding numbers (total cost)
 
-function calculateTotal() {
+// function calculateTotal() {
 
-    const rows = document.querySelectorAll("#expenseTable tbody tr");
-    let totalCost = 0;
+//     const rows = document.querySelectorAll("#expenseTable tbody tr");
+//     let totalCost = 0;
 
-    rows.forEach(row => {
-        const cost = parseFloat(row.querySelector(".cost").textContent) || 0;
-        totalCost += cost;
-    });
+//     rows.forEach(row => {
+//         const cost = parseFloat(row.querySelector(".cost").textContent) || 0;
+//         totalCost += cost;
+//     });
 
-    document.getElementById("totalCost").textContent = totalCost.toFixed(2);
-}
+//     document.getElementById("totalCost").textContent = totalCost.toFixed(2);
+// }
 
-document.addEventListener('DOMContentLoaded', function () {
-    calculateTotal();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     calculateTotal();
+// });

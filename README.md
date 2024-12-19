@@ -58,46 +58,187 @@ All the User Stories were mapped to the Kanban Board and you can see them here:
 
 ### User Interface, Experience and Feedback
 This section shows how the user interacts with the app. If the app is user-friendly and easy-to-navigate.
-It relates to: [User Story #10 - UX of the app and website] (As a User, I would like to have an easy-to-navigate website, so I can understand the purpose of the website at a first glance and decide to use the app and create an account) -[here](<https://github.com/users/Borys-777/projects/8/views/1?pane=issue&itemId=90616284&issue=Borys-777%7CBudgetBuddy%7C18>) 
-
 
 
 # Features 
-The app consists of one main page with many features for the user.
-
-## Add expense
-Adds a new expense to the list of expenses including the type of expense and cost.
-![Add expense](static/images/readme-images/addexpense.jpg)
-
-![Add expense2](static/images/readme-images/addexpense2.jpg)
+The app consists of such pages: 
+- Home 
+- Login 
+- Logout 
+- Journey Planner 
 
 
-## Edit expense / record
-Edit an existing expense (expense name, amount).
-![Edit expense](static/images/readme-images/editexpense.jpg)
+## Home
+The main landing page
 
-![Edit expense2](static/images/readme-images/editexpense2.jpg)
 
-![Edit expense3](static/images/readme-images/editexpense3.jpg)
+## Login page
+Functionality for the user to login to the account
 
-## Delete expenses
+
+## Logout page
 Delete an existing expense.
-![Delete expense](static/images/readme-images/deleterecord.jpg)
+Functionality for the user to logout from the account
 
-## Total cost overview
-The total amount of all the expenses is shown at the bottom of all the expenses:
-![Total cost](static/images/readme-images/totalcost.jpg)
+## Journey Planner 
+The user can add the list of nice and naughty kids + household, related to the kids. 
 
 ## User-Friendly Interface
-The UI is user-friendly and easy to navigate for the user. The icons for Dashboard and Logout buttons provides additional functionality.
-The user gets notification messages when he logs in / logs out: 
-![Notification](static/images/readme-images/notification.jpg)
-
-
-![User Interface](static/images/readme-images/user-friendly.jpg)
+The UI is user-friendly and easy to navigate for the user. 
+The user gets notification messages when he logs in / logs out
 
 ## Navbar 
-The navigation bar with main buttons; Dashboard, Logout - for logged in users. And - Register, Login - for the new users, who didn't create the account yet. 
-![Navbar](static/images/readme-images/navbar.jpg)
+The navigation bar with main buttons: Home, Login, Logout, Journey Planner
 
-![Navbar2](static/images/readme-images/navbar2.jpg)
+
+## Secure authentication
+Robust authentication measures were taken place to safely store each users private data.
+Every user needs to authenticate themselves and login to their account before accessing the features and data.
+The authentication features include Register, Log in and Log out.
+
+
+## Additional Security Features:
+Users are redirected to the sign-in page if they attempt unauthorized actions. So unathorized users can not enter and manipulate other registered user's records. Unathorized users can not edit / delete the registered users' records, as such records are not visible for the unauthorized users. 
+
+
+## Future features
+
+Future features might include:
+
+- Display on top: Count how many Naughty vs Nice in the household, and sum up how many presents vs coal is needed for the journey.
+- Confirm if Households are visited (include an effect?)
+- Filter households by City? (Filter by timezone?)
+- Sound effects and jS elements.
+- Styled buttons and images - snowflake or present images for buttons.
+- Progress Bar – how many households are visited, how many are left.
+- Santa in sleigh going across screen.
+- Santa’s Playlist – link to spotify or youtube christmas playlist?
+- Super optional – kids name randomizer to generate kids with one click?
+
+
+# Technologies Used
+
+- HTML 5
+- CSS 3
+- JavaScript
+- Django
+- Python
+- Bootstrap 5 
+- Balsamiq
+- GitHub 
+- Git 
+- Heroku 
+
+
+## Django Packages
+
+- Gunicorn: As the server for Heroku
+- Psycopg2: As an adaptor for Python and DB
+- Crispy Forms: To style the forms
+
+## Aditional Frameworks - Libraries - Programs to be Used
+
+- PEP8: PEP8 to validate all the Python code
+- W3C - HTML: W3C- HTML to validate all the HTML code
+- W3C - CSS: W3C - CSS to validate the CSS code
+- Google Chrome Dev Tools: To check App responsiveness and debugging
+
+
+# Testing and Validation
+## Responsiveness
+
+We used the dev tools on chrome to test some of the functionality. 
+
+
+# Testing and Validation
+Due to the lack of time and some of the team members being absent, we didn't have much time to work on the HTML, CSS Validation, as well as reponsiveness on different screens. 
+The plan is to work on the mentioned issues in the next sprints. 
+
+
+## Python and Django
+The lan is to work more with CI Python Linter to check the python scripts - in the next sprints. 
+
+
+## Known Bugs 
+
+- Currently there's a bug with a button shown at the bottom of the page, which we weren't able to fix, due to the lack of time. 
+The plan is to work on fixing that in the next sprints.
+
+![FooterBug](static/media/bug1.jpg)
+
+
+
+# Deployment 
+
+## Deployment Steps:
+
+### Creating the Heroku App
+
+- Begin by signing up or logging in to Heroku.
+- In the Heroku Dashboard, click on 'New' and then select 'Create New App'.
+- Choose a unique name for your project, like "Travel Buddies".
+- Select the EU region.
+- Click on "Create App".
+- In the "Deploy" tab, choose GitHub as the deployment method.
+- Connect your GitHub account and find/connect your GitHub repository.
+
+#### Setting Up Environment Variables
+
+- Create `env.py` in the top level of the Django app.
+- Import `os` in `env.py`.
+- Set up necessary environment variables in `env.py`, including the secret key and database URL.
+- Update `settings.py` to use environment variables for secret key and database.
+- Configure environment variables in the Heroku "Settings" tab under "Config Vars".
+- Migrate the models to the new database connection in the terminal.
+- Configure static files and templates directories in `settings.py`.
+- Add Heroku to the `ALLOWED_HOSTS` list.
+
+#### Creating Procfile and Pushing Changes
+
+- Create a `Procfile` in the top level directory.
+- Add the command to run the project in the `Procfile`.
+- Add, commit, and push the changes to GitHub.
+
+#### Heroku Deployment
+
+- In Heroku, navigate to the Deployment tab and deploy the branch manually.
+- Monitor the build logs for any errors.
+- Upon successful deployment, Heroku will display a link to the live site.
+- Make sure to resolve any deployment errors by adjusting the code as necessary.
+
+
+### Forking the Repository
+
+Forking the GitHub Repository allows you to create a copy of the original repository without affecting it. Follow these steps:
+
+- Log in to GitHub or create an account.
+- Visit the [repository link](https://github.com/Will-WHyd/Reindeer-Radar).
+- Click on "Fork" at the top of the repository.
+
+### Creating a Clone of the Repository
+
+Creating a clone enables you to make a local copy of the repository. Follow these steps:
+
+- Navigate to the [Project repository](https://github.com/Will-WHyd/Reindeer-Radar).
+- Click on the <>Code button.
+- Select the "HTTPS" option under the "Local" tab and copy the URL.
+- Open your terminal and change the directory to your desired location.
+- Use `git clone` followed by the copied repository URL.
+
+
+
+# Resources
+
+- [Code Institute Full Stack Development course materials](https://codeinstitute.net/) 
+- [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Stack overflow](https://stackoverflow.com/)
+
+
+# Credits and Acknowledgements
+
+- Great "thank you" to John Rearden - for the ideas, help with the errors fixing. 
+- LMS for teaching content: (<https://learn.codeinstitute.net/ci_program/fsbootcamp_with_hackathons_v2_2>)
+- Bootstrap technologies: (<https://getbootstrap.com/docs/4.0/components/card/>)
+- ChatGPT was used to fix the errors in the code. 
+- Photos were taken from: Pexels
+- Audio downloaded from: https://pixabay.com/sound-effects/search/santa%20claus/?pagi=4 
