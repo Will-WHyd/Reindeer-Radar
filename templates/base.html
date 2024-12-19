@@ -132,14 +132,17 @@
 
     <!-- Custom JavaScript -->
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/effects.js' %}"></script>
 
     {% block extras %}
     {% endblock %}
 
+       <!-- Audio Element for Button Click Sound -->
+       <audio id="clickSound" src="{% static 'audio/bellsSHORT.mp3' %}" preload="auto"></audio>
+       
     {% include 'modals.html' %}
 
-    <!-- Audio Element for Button Click Sound -->
-    <audio id="clickSound" src="{% static 'audio/bellsSHORT.mp3' %}" preload="auto"></audio>
+ 
 
 </body>
 
