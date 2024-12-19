@@ -17,10 +17,21 @@ class HomePage(TemplateView):
 
 
 def journey_list(request):
-
+    # Get households belonging to the logged-in user
     household_list = Household.objects.filter(user=request.user)
+    
+    # Filter kids only for households that are marked as not visited
+    visited_households = Household.objects.filter(user=request.user, visited=False)
+    naughty_count = Kid.objects.filter(family__in=visited_households, behavior='Naughty').count()
+    nice_count = Kid.objects.filter(family__in=visited_households, behavior='Nice').count()
 
-    return render(request, 'journey/list.html', {"household_list": household_list})
+    context = {
+        "household_list": household_list,
+        "naughty_count": naughty_count,
+        "nice_count": nice_count,
+    }
+    return render(request, 'journey/list.html', context)
+
 
 @login_required
 def add_house(request):
@@ -36,10 +47,10 @@ def add_house(request):
             household.user = request.user
             household.save()
 
-            # messages.add_message(
-            #     request, messages.SUCCESS,
-            #     'New Destination Added! Christmas Joy inbound!'
-            # )
+            messages.add_message(
+                request, messages.SUCCESS,
+                'New Destination Added! Christmas Joy inbound!'
+            )
 
             return redirect('journey')
 
@@ -101,7 +112,7 @@ def add_kid(request, id):
 
             messages.add_message(
                 request, messages.SUCCESS,
-                'New Kid Added to the {{household.name}} house! Christmas Joy inbound!'
+                f'New Kid Added to the { household.name } house! Christmas Joy inbound!'
             )
 
             return redirect('journey')
