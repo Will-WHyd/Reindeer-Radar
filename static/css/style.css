@@ -158,6 +158,10 @@ body {
 }
 
 /* Button Styles */
+.btn {
+    margin: 0.5rem;
+}
+
 .btn-primary {
     background-color: var(--accent-red);
     border-color: var(--accent-red);
@@ -262,6 +266,12 @@ main {
     box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* Adds a subtle glow effect */
 }
 
+.card {
+    border: 1px solid #eb009c9f;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
 /* Enhanced Sparkle Animation */
 @keyframes sparkle {
     0% {
@@ -310,6 +320,12 @@ input[type='submit'] {
 .card-title {
     color: black;
 }
+
+.present-counters {
+    margin-top: 2rem;
+}
+
+
 
 /* Journey List */
 .spinner {
