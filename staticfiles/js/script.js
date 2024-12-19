@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.log(ObjID, modelType);
             if (modelType === "house"){
-                deleteConfirm.href = `/delete_house/${ObjID}`;
+                deleteConfirm.href = /delete_house/${ObjID};
             } else if (modelType === "kid"){
-                deleteConfirm.href = `/delete_kid/${ObjID}`;
+                deleteConfirm.href = /delete_kid/${ObjID};
                 
             }
             console.log(deleteConfirm.href)
@@ -40,4 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function toggleStatus(url) {
     window.location.href = url;
-}
+}  

@@ -1,11 +1,5 @@
 {% load static %}
 
-{% url 'home' as home_url %}
-{% url 'journey' as journey_url %}
-{% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
-{% url 'account_logout' as logout_url %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +16,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-
 </head>
 
 <body>
@@ -56,27 +48,25 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarText">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == journey_url %}active" aria-current="page{% endif %}"
+                        <a class="nav-link {% if request.path == journey_url %}active{% endif %}"
                             href="{% url 'journey' %}">Journey Planner</a>
                     </li>
-                    <li>
-                        <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
                             href="{% url 'account_logout' %}">Logout</a>
-                    </li>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
                             href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}"
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}"
                             href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
@@ -89,7 +79,6 @@
             <img src="{% static 'images/banner-dec.webp' %}" alt="Holly Decoration" class="img-fluid mb-3">
         </div>
     </div>
-
 
     <!-- Snowflakes -->
     <div class="snowflake">❄️</div>
@@ -128,22 +117,22 @@
 
 {% include 'footer.html' %}
 
-    
     <!-- Bootstrap Javascript Files -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/f0ad124e4b.js" crossorigin="anonymous"></script>
 
-
-
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
 
     {% block extras %}
     {% endblock %}
 
-
     {% include 'modals.html' %}
+
+    <!-- Audio Element for Button Click Sound -->
+    <audio id="clickSound" src="{% static 'audio/bellsSHORT.mp3' %}" preload="auto"></audio>
 
 </body>
 
