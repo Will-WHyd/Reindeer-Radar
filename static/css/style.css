@@ -62,14 +62,14 @@ body {
 
 .star {
     position: fixed;
-    background: radial-gradient(circle, var(--accent-white) 2px, transparent 2px);
+    background: radial-gradient(circle, #FFFF00 2px, transparent 2px); /* Bright Yellow Sparkles */
     width: 8px; /* Increased from 3px to 8px */
     height: 8px; /* Increased from 3px to 8px */
     border-radius: 50%;
     opacity: 0.8;
     animation: twinkle 3s infinite;
     z-index: 5; /* Above snowflakes and other background elements */
-    box-shadow: 0 0 8px var(--accent-white); /* Adds a glow effect */
+    box-shadow: 0 0 8px #FFFF00; /* Adds a glow effect */
 }
 
 /* Positioning Stars with Varied Delays and Locations */
@@ -194,7 +194,6 @@ body {
 
 
 html, body {
-    
     margin: 0;
 }
 
@@ -235,7 +234,36 @@ main {
 }
 
 .add-house-btn {
-    margin: 5%
+    margin: 5%;
+} 
+
+/* --- Start of Enhanced Sparkle Effect Styles --- */
+
+/* Sparkle Effect Styles */
+
+.sparkle {
+    position: absolute;
+    width: 12px; /* Increased size for better visibility */
+    height: 12px;
+    background: radial-gradient(circle, #FFFF00 0%, rgba(255, 255, 0, 0) 70%); /* Bright Yellow Sparkle */
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    ); /* Star Shape */
+    pointer-events: none;
+    animation: sparkle 1s ease-out forwards;
+    z-index: 10; /* Ensure sparkles appear above other elements */
+    opacity: 0.8;
+    transform-origin: center; /* Ensures rotation happens around the center */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* Adds a subtle glow effect */
 }
 
 .card {
@@ -244,6 +272,51 @@ main {
     border-radius: 5px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
+/* Enhanced Sparkle Animation */
+@keyframes sparkle {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        /* Increased translation values for better spread */
+        transform: translate(calc(var(--moveX) * 1.5), calc(var(--moveY) * 1.5)) scale(2) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Ensure buttons can contain absolutely positioned sparkles */
+button, 
+a.btn, 
+input[type='button'], 
+input[type='submit'] {
+    position: relative;
+    overflow: hidden; /* Prevent sparkles from overflowing the button */
+}
+
+/* --- End of Enhanced Sparkle Effect Styles --- */
+
+/* --- Start of Sparkle Button Styling --- */
+
+.sparkle-button {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #FF0000; /* Bright Red */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden; /* Ensures sparkles don't overflow the button */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sparkle-button:hover {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+/* --- End of Sparkle Button Styling --- */
 .card-title {
     color: black;
 }
