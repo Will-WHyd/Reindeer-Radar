@@ -34,22 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-// Toggle household visibility
-    document.getElementById("toggleVisibility").addEventListener("click", () => {
-        // Get all cards and their associated checkboxes
-        console.log("Toggle visibility loaded")
-        const cards = document.querySelectorAll(".household-item");
 
-        cards.forEach((card) => {
-            const checkbox = card.querySelector(".visited-checkbox");
-            console.log(cards, card, checkbox)
-            // Toggle visibility based on checkbox state
-            if (checkbox.checked) {
-                card.style.display = card.style.display === "none" ? "block" : "none";
-            }
-            console.log("Toggle visibility clicked")
-        });
-    });
 
 
     // --- Start of Enhanced Sparkle Effect Functionality ---
@@ -212,3 +197,19 @@ function toggleStatus(url) {
     window.location.href = url;
 }
 
+// Toggle household visibility
+document.getElementById("toggleVisibility").addEventListener("click", () => {
+    // Get all cards and their associated checkboxes
+    console.log("Toggle visibility loaded")
+    const cards = document.querySelectorAll(".household-item");
+
+    cards.forEach((card) => {
+        const checkbox = card.querySelector(".visited-checkbox");
+        console.log(checkbox)
+        // Toggle visibility based on checkbox state
+        if (checkbox.checked) {
+            card.style.display = card.style.display === "none" ? "block" : "none";
+        }
+        console.log("Toggle visibility clicked")
+    });
+});
