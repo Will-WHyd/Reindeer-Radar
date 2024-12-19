@@ -11,8 +11,8 @@
 /* Body Background with Christmas Colors */
 body {
     background-color: var(--primary-color); /* Fallback color */
-    background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-red) 50%, var(--accent-gold) 100%);
-    background-repeat: no-repeat;
+    /* background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-red) 50%, var(--accent-gold) 100%);
+    background-repeat: no-repeat; */
     background-attachment: fixed;
     background-size: cover;
     color: var(--text-color); /* Ensure text is readable on dark background */
@@ -48,12 +48,7 @@ body {
     animation: snow 10s linear infinite;
 }
 
-/* Responsive Snowflakes */
-@media (min-width: 768px) {
-    .snowflake {
-        font-size: 1.5em;
-    }
-}
+
 
 /* Twinkling Stars */
 @keyframes twinkle {
@@ -106,13 +101,15 @@ body {
     position: relative;
     width: 100%;
     height: 300px; /* Adjust height as needed */
-    background-image: url("../images/banner_background.webp"); /* Replace with your banner image */
+    background-image: url("/static/images/santa_list.webp"); /* Replace with your banner image */
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10%;
     margin-bottom: 2rem;
+    z-index: 1;
 }
 
 .banner-overlay {
@@ -121,7 +118,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* Reduced opacity for less darkness */
+    background: rgba(0, 0, 0, 0); /* Reduced opacity for less darkness */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,24 +185,10 @@ body {
 }
 
 .container {
-    position: relative;
     z-index: 4; /* Above stars and snowflakes */
 }
 
-/* Responsive Design Adjustments */
-@media (max-width: 767.98px) {
-    .banner {
-        height: 200px;
-    }
-    
-    .footer-banner {
-        height: 100px;
-    }
-    
-    .jumbotron {
-        padding: 1rem 0.5rem;
-    }
-}
+
 html, body {
     
     margin: 0;
@@ -220,16 +203,39 @@ body {
     min-height: 80vh;
 }
 
+.navbar {
+    position: fixed !important;
+    width: 100%;
+    z-index: 100;
+    padding: 0.5rem;
+    background-color: rgba(252, 46, 217, 0.829);;
+}
+
+.holly-banner-nav {
+    background-image: url('static/images/banner-dec.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    position: fixed !important;
+    z-index: 2;
+}
+
 
 main {
     z-index: 3; /* Ensure content appears above the overlay */
     position: relative;
-    padding: 20px;
+    /* padding-top: 20px; */
+    margin-top: 20px;
 }
-
 
 .add-house-btn {
     margin: 5%
+}
+
+.card-title {
+    color: black;
 }
 
 /* Journey List */
@@ -245,4 +251,40 @@ main {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+/* Media Queries */
+
+/* Responsive Snowflakes */
+@media (min-width: 768px) {
+    .snowflake {
+        font-size: 1.5em;
+    }
+
+    .add-house-div {
+        position:sticky;
+        height: 100vh;
+    }
+    
+    .fixed-list-div {
+        position: fixed;
+    }
+}
+
+
+/* Responsive Design Adjustments */
+@media (max-width: 767.98px) {
+    .banner {
+        height: 200px;
+    }
+    
+    .footer-banner {
+        height: 100px;
+    }
+    
+    .jumbotron {
+        padding: 1rem 0.5rem;
+    }
+
 }

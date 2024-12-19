@@ -21,17 +21,48 @@
 <!-- Hero Section -->
 <section class="jumbotron text-center">
     <div class="container">
-        <img src="{% static 'images/greentree.webp' %}" alt="Decorative Green Christmas Tree" class="img-fluid mb-3" style="max-width: 150px;">
-        <h1 class="jumbotron-heading">Track Santa's Journey</h1>
-        <p class="lead">Monitor Santa's real-time journey to deliver presents across the globe this Christmas Eve.</p>
-        <a href="#features" class="btn btn-primary my-2">Explore Features</a>
-        
-        {# 
-            Start Tracking Button
-            TODO: Update the href attribute with the correct URL once the 'tracker' page is set up.
-            Example: href="your-tracker-url-here"
-        #}
-        <a href="#" class="btn btn-success my-2">Start Tracking</a>
+        <img src="{% static 'images/greentree.webp' %}" alt="Decorative Green Christmas Tree" class="img-fluid mb-3"
+            style="max-width: 150px;">
+        <h1 class="jumbotron-heading">Track Your Present Journey</h1>
+        <p class="lead">Once every year, Santa and his helpers deliver presents across the globe on Christmas Eve.</p>
+        <p class="lead">With Reindeer Radar, tracking your delivery route has never been easier!</p>
+        <div class="row">
+            <div class="card col-md-6">
+                <div class="card-body">
+                    <button class="btn-primary"><i class="fa-solid fa-plus"></i> <i
+                            class="fa-solid fa-house-user"></i></button>
+                    <p class="card-title pt-2 pb-2">Click to add a house to your delivery route</p>
+                </div>
+            </div>
+            <div class="card col-md-6">
+                <div class="card-body">
+                    <button class="btn-secondary"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn btn-delete btn-danger w-100"><i class="fa-solid fa-trash-can"></i></button>
+                    <p class="card-title pt-2 pb-2">Click these to Edit and Delete houses from the list</p>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <div class="card-body">
+                    <button class="btn btn-primary"><i class="fa-solid fa-person-circle-plus"></i> Add Kids! </button>
+                    <p class="card-title pt-2 pb-2">Click to add kids to the household! Remember to check it twice!</p>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <div class="card-body">
+                    <button class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></button>
+                    <p class="card-title pt-2 pb-2">Click to update a kid's details</p>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <div class="card-body">
+                    <button class="btn btn-delete btn-danger" data-id="{{ kids.id }}" data-model="kid"><i class="fa-solid fa-person-circle-minus"></i></button>
+                    <p class="card-title pt-2 pb-2">Click to remove a kid from the list!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{% url 'journey' %}" class="btn btn-success my-2">Start Your Journey</a>
     </div>
 </section>
 
@@ -41,12 +72,10 @@
         <div class="col-md-8">
             <div class="embed-responsive embed-responsive-16by9">
                 <!-- Embedded YouTube Video -->
-                <iframe class="embed-responsive-item" 
-                        src="https://www.youtube.com/embed/lzTQCgpHAWE?autoplay=1&mute=1" 
-                        title="Reindeer Radar Promotional Video" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lzTQCgpHAWE?autoplay=1&mute=1"
+                    title="Reindeer Radar Promotional Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
                 </iframe>
             </div>
         </div>
@@ -78,7 +107,7 @@
 </section>
 
 <!-- Additional Full-Width Banner Graphic (Optional) -->
-<section class="full-width-banner text-center my-5">
+<section class="full-width-banner text-center">
     <!-- Optional overlay -->
     <div class="banner-overlay d-flex justify-content-center align-items-center">
         <p class="text-dark mb-0">Enjoy the Magic of Christmas with Reindeer Radar!</p>

@@ -7,85 +7,103 @@
 
 <!-- Household List Column. -->
 <div class="row justify-content-center">
-    <div class="col-md-2 offset-md-1">
-        <a href="{% url 'add_house' %}" id="add-house-btn" class="btn btn-primary">Add a new home to visit!</a>
+    <div class="col-md-1 offset-md-1 add-house-div">
+        <div class="fixed-list-div">
+
+
+            <a href="{% url 'add_house' %}" id="add-house-btn" class="btn btn-primary btn-lg"><i
+                    class="fa-solid fa-plus"></i> <i class="fa-solid fa-house-user"></i></a>
+
+            <p id="nice_counter">Number of presents needed: {{ nice_count }}</p>
+            <p id="naughty_counter">Number of coals needed: {{ naughty_count }}</p>
+            <div class="controls">
+                <button id="toggleVisibility" type="button" class="btn btn-link">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+
+        </div>
+
     </div>
-
-
-    {% for household in household_list %}
     <div class="col-md-8 mb-3">
-        <div class="card mb-8 household-item" data-id="{{ household.id }}">
-            <div class="row">
-                <div class="col-md-6 p-2 ml-md-2">
-                    <h3 class="card-title pt-2 pb-2">{{ household.name }}</h3>
-                    <p class="card-text text-muted h6">{{ household.city }} </p>
+        {% for household in household_list %}
+        <div class="col-md-10 mb-3">
+            <div class="card mb-8 household-item" data-id="{{ household.id }}">
+                <div class="row">
+                    <div class="col-md-6 p-2 ml-md-2">
+                        <h3 class="card-title pt-2 pb-2">{{ household.name }}</h3>
+                        <p class="card-text text-muted h6">{{ household.city }} </p>
 
-                    <input type="checkbox" class="visited-checkbox" id="{{ household.id }}-checkbox"
-                        {% if household.visited %}checked{% endif %}>
-                    <label for="{{ household.id }}-checkbox">Visited: {{ household.visited }}</label>
-                    <div class="spinner" id="{{ household.id }}-spinner" style="display: none;"></div>
-                </div>
+                        <input type="checkbox" class="visited-checkbox" id="{{ household.id }}-checkbox"
+                            {% if household.visited %}checked{% endif %}>
+                        <label for="{{ household.id }}-checkbox">Visited: {{ household.visited }}</label>
+                        <div class="spinner" id="{{ household.id }}-spinner" style="display: none;"></div>
 
-                <div class="col-md-3">
-                    <div class="col-8">
-                        <a href="{% url 'edit_house' household.id %}" class="btn btn-secondary w-100">Edit</a>
                     </div>
-                    <div class="col-8">
-                        <button class="btn btn-delete btn-danger w-100" data-id="{{ household.id }}"
-                            data-model="household">Delete</button>
-                    </div>
-                    
-                </div>
-                <div class="col-md-2 offset-md-1">
-                    <button class="btn btn-info h-100 w-100" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapse-{{household.id}}">More...</button>
-                </div>
-                <div class="collapse" id="collapse-{{household.id}}">
-                    <div class="card-body">
-                        <hr>
-                        <div class="row">
 
-                            {% for kids in household.kids.all %}
-                            <div class="col-md-4 pt-1 pb-2">
-                                <div class="col-12 p-2">
-                                    <h4 class="card-text text-muted h6">Name: {{ kids.name }} </h4>
-                                    <p class="card-text text-muted h6">{{ kids.age }} years old</p>
-                                    <p class="card-text text-muted h6">On the {{ kids.behavior }} list! </p>
-                                </div>
-                                <div class="col-12">
-                                    <div>
-                                        <a href="{% url 'edit_kid' kids.id %}" class="btn btn-secondary">Edit</a>
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-delete btn-danger" data-id="{{ kids.id }}"
-                                            data-model="kid">Delete</button>
-                                    </div>
-                                </div>
-                                
-
-
-
-                            </div>
-                            <!-- closing Kids for loop -->
-                            {% endfor %}
-
+                    <div class="col-md-3">
+                        <div class="col-8">
+                            <a href="{% url 'edit_house' household.id %}" class="btn btn-secondary w-100"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                        </div>
+                        <div class="col-8">
+                            <button class="btn btn-delete btn-danger w-100" data-id="{{ household.id }}"
+                                data-model="household"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
 
-                        <hr>
+                    </div>
+                    <div class="col-md-2 offset-md-1">
+                        <button class="btn btn-info h-100 w-100" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{household.id}}">More...</button>
+                    </div>
+                    <div class="collapse" id="collapse-{{household.id}}">
+                        <div class="card-body">
+                            <hr>
+                            <div class="row">
 
-                        <a href="{% url 'add_kid' household.id %}" class="btn btn-primary">Add Kids!</a>
+                                {% for kids in household.kids.all %}
+                                <div class="col-md-4 pt-1 pb-2">
+                                    <div class="col-12 p-2">
+                                        <h4 class="card-text text-muted h6">Name: {{ kids.name }} </h4>
+                                        <p class="card-text text-muted h6">{{ kids.age }} years old</p>
+                                        <p class="card-text text-muted h6">On the {{ kids.behavior }} list! </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            <a href="{% url 'edit_kid' kids.id %}" class="btn btn-secondary"><i
+                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-delete btn-danger" data-id="{{ kids.id }}"
+                                                data-model="kid"><i
+                                                    class="fa-solid fa-person-circle-minus"></i></button>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                                <!-- closing Kids for loop -->
+                                {% endfor %}
+
+                            </div>
+
+                            <hr>
+
+                            <a href="{% url 'add_kid' household.id %}" class="btn btn-primary"><i
+                                    class="fa-solid fa-person-circle-plus"></i> Add Kids!</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
 
-    {% if none %}
-    <p>You have no homes to visit.</p>
-    {% endif %}
-    <p>Number of presents needed: {{ nice_count }}</p>
-    <p>Number of coals needed: {{ naughty_count }}</p>
+        {% if none %} 
+        <p>You have no homes to visit.</p>
+        {% endif %}
+    </div>
 </div>
 
 
