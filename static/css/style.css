@@ -1,6 +1,381 @@
-h1 {
-    color: red;
+/* CSS Variables for Christmas Theme */
+:root {
+    --primary-color: #013220;      /* Dark Green */
+    --accent-red: #FF0000;         /* Bright Red */
+    --accent-gold: #FFD700;        /* Gold */
+    --accent-white: #FFFFFF;       /* White */
+    --text-color: #FFFFFF;         /* White */
+    --text-light: #F0F0F0;         /* Light Grey for softer contrast */
+}
+
+/* Body Background with Christmas Colors */
+body {
+    background-color: var(--primary-color); /* Fallback color */
+    /* background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-red) 50%, var(--accent-gold) 100%);
+    background-repeat: no-repeat; */
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--text-color); /* Ensure text is readable on dark background */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scroll caused by fixed elements */
+}
+
+/* Snowflake Animation */
+@keyframes snow {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: var(--accent-white);
+    font-size: 1em;
+    z-index: 3; /* Above other elements */
+    user-select: none;
+    pointer-events: none;
+    animation: snow 10s linear infinite;
+}
+
+
+
+/* Twinkling Stars */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.star {
+    position: fixed;
+    background: radial-gradient(circle, #FFFF00 2px, transparent 2px); /* Bright Yellow Sparkles */
+    width: 8px; /* Increased from 3px to 8px */
+    height: 8px; /* Increased from 3px to 8px */
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite;
+    z-index: 5; /* Above snowflakes and other background elements */
+    box-shadow: 0 0 8px #FFFF00; /* Adds a glow effect */
+}
+
+/* Positioning Stars with Varied Delays and Locations */
+.star:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { top: 15%; left: 80%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 25%; left: 40%; animation-delay: 1s; }
+.star:nth-child(4) { top: 35%; left: 70%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 45%; left: 20%; animation-delay: 2s; }
+.star:nth-child(6) { top: 55%; left: 60%; animation-delay: 2.5s; }
+.star:nth-child(7) { top: 65%; left: 30%; animation-delay: 3s; }
+.star:nth-child(8) { top: 75%; left: 75%; animation-delay: 3.5s; }
+.star:nth-child(9) { top: 85%; left: 50%; animation-delay: 4s; }
+.star:nth-child(10) { top: 95%; left: 15%; animation-delay: 4.5s; }
+
+/* Additional Stars for a Fuller Effect */
+.star:nth-child(11) { top: 12%; left: 25%; animation-delay: 5s; }
+.star:nth-child(12) { top: 22%; left: 55%; animation-delay: 5.5s; }
+.star:nth-child(13) { top: 32%; left: 35%; animation-delay: 6s; }
+.star:nth-child(14) { top: 42%; left: 65%; animation-delay: 6.5s; }
+.star:nth-child(15) { top: 52%; left: 45%; animation-delay: 7s; }
+.star:nth-child(16) { top: 62%; left: 85%; animation-delay: 7.5s; }
+.star:nth-child(17) { top: 72%; left: 55%; animation-delay: 8s; }
+.star:nth-child(18) { top: 82%; left: 35%; animation-delay: 8.5s; }
+.star:nth-child(19) { top: 92%; left: 65%; animation-delay: 9s; }
+.star:nth-child(20) { top: 10%; left: 30%; animation-delay: 9.5s; }
+
+/* Full-Width Banner Styles */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    background-image: url("/static/images/santa_list.webp"); /* Replace with your banner image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    z-index: 1;
+    
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Reduced opacity for less darkness */
+    display: flex;
+    text-shadow: 2px 2px 5px #013220;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Allows interaction with underlying elements */
+}
+
+/* Footer Banner Styles */
+.footer-banner {
+    position: relative;
+    width: 100%;
+    height: 150px; /* Adjust height as needed */
+    background-image: url("../images/footer_background.webp"); /* Replace with your footer banner image */
+    background-size: cover;
+    background-position: center;
+}
+
+.footer-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Reduced opacity for less darkness */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Allows interaction with underlying elements */
+}
+
+/* Jumbotron Styles */
+.jumbotron {
+    background: rgba(255, 255, 255, 0.8); /* Increased opacity for better visibility */
+    color:#013220;
+    padding: 2rem 1rem;
+    border-radius: 0.3rem;
+    backdrop-filter: blur(5px);
+    z-index: 4; /* Ensure it's above other elements */
+}
+
+/* Button Styles */
+.btn {
+    margin: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.btn-success {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.btn-success:hover {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+/* Additional Styling for Images and Containers */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    z-index: 4; /* Above stars and snowflakes */
+}
+
+
+html, body {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 80vh;
+}
+
+.navbar {
+    position: fixed !important;
+    width: 100%;
+    z-index: 100;
+    padding: 0.5rem;
+    background-color: rgba(252, 46, 217, 0.829);;
+}
+
+.holly-banner-nav {
+    background-image: url('static/images/banner-dec.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    position: fixed !important;
+    z-index: 2;
+}
+
+
+main {
+    z-index: 3; /* Ensure content appears above the overlay */
+    position: relative;
+    /* padding-top: 20px; */
+    margin-top: 20px;
+}
+
+.add-house-btn {
+    margin: 5%;
+} 
+
+/* --- Start of Enhanced Sparkle Effect Styles --- */
+
+/* Sparkle Effect Styles */
+
+.sparkle {
+    position: absolute;
+    width: 12px; /* Increased size for better visibility */
+    height: 12px;
+    background: radial-gradient(circle, #FFFF00 0%, rgba(255, 255, 0, 0) 70%); /* Bright Yellow Sparkle */
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    ); /* Star Shape */
+    pointer-events: none;
+    animation: sparkle 1s ease-out forwards;
+    z-index: 10; /* Ensure sparkles appear above other elements */
+    opacity: 0.8;
+    transform-origin: center; /* Ensures rotation happens around the center */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* Adds a subtle glow effect */
+}
+
+.card {
+    border: 1px solid #eb009c9f;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+/* Enhanced Sparkle Animation */
+@keyframes sparkle {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        /* Increased translation values for better spread */
+        transform: translate(calc(var(--moveX) * 1.5), calc(var(--moveY) * 1.5)) scale(2) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Ensure buttons can contain absolutely positioned sparkles */
+button, 
+a.btn, 
+input[type='button'], 
+input[type='submit'] {
+    position: relative;
+    overflow: hidden; /* Prevent sparkles from overflowing the button */
+}
+
+/* --- End of Enhanced Sparkle Effect Styles --- */
+
+/* --- Start of Sparkle Button Styling --- */
+
+.sparkle-button {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #FF0000; /* Bright Red */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden; /* Ensures sparkles don't overflow the button */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sparkle-button:hover {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+/* --- End of Sparkle Button Styling --- */
+.card-title {
+    color: black;
+}
+
+.present-counters {
+    margin-top: 2rem;
+}
+
+
+
+/* Journey List */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Media Queries */
+
+/* Responsive Snowflakes */
+@media (min-width: 768px) {
+    .snowflake {
+        font-size: 1.5em;
     }
 
-
+    .add-house-div {
+        position:sticky;
+        height: 100vh;
+    }
     
+    .fixed-list-div {
+        position: fixed;
+    }
+}
+
+
+/* Responsive Design Adjustments */
+@media (max-width: 767.98px) {
+    .banner {
+        height: 200px;
+    }
+    
+    .footer-banner {
+        height: 100px;
+    }
+    
+    .jumbotron {
+        padding: 1rem 0.5rem;
+    }
+
+}

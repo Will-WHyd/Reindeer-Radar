@@ -1,10 +1,115 @@
 {% extends "base.html" %}
+
 {% load static %}
 
-
-
 {% block content %}
+<!-- Auto-Play Christmas Music -->
+<audio autoplay loop>
+    <source src="{% static 'audio/christmas_music.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
-<h1>Hello Django From Heroku</h1>
 
+<!-- Full-Width Banner Graphic -->
+<section class="banner text-center">
+    <!-- Optional overlay for better text visibility -->
+    <div class="banner-overlay d-flex justify-content-center align-items-center">
+        <h1 class="text-white">Welcome to Reindeer Radar!</h1>
+    </div>
+</section>
+
+<!-- Hero Section -->
+<section class="jumbotron text-center">
+    <div class="container">
+        <img src="{% static 'images/greentree.webp' %}" alt="Decorative Green Christmas Tree" class="img-fluid mb-3"
+            style="max-width: 150px;">
+        <h1 class="jumbotron-heading">Track Your Present Journey</h1>
+        <p class="lead">Once every year, Santa and his helpers deliver presents across the globe on Christmas Eve.</p>
+        <p class="lead">With Reindeer Radar, tracking your delivery route has never been easier!</p>
+        <div class="row">
+            <div class="card col-md-6">
+                <div class="card-body">
+                    <button class="btn btn-primary btn-large w-100"><i class="fa-solid fa-plus"></i> <i
+                            class="fa-solid fa-house-user"></i></button>
+                    <p class="card-title pt-2 pb-2">Click to add a house to your delivery route</p>
+                </div>
+            </div>
+            <div class="card col-md-6">
+                <div class="card-body">
+                    <button class="btn btn-warning w-100"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn btn-danger w-100"><i class="fa-solid fa-trash-can"></i></button>
+                    <p class="card-title pt-2 pb-2">Click these to Edit and Delete houses from the list</p>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <div class="card-body">
+                    <button class="btn btn-primary"><i class="fa-solid fa-person-circle-plus"></i> Add Kids! </button>
+                    <p class="card-title pt-2 pb-2">Click to add kids to the household! Remember to check it twice!</p>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <div class="card-body">
+                    <button class="btn btn-warning w-100"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <p class="card-title pt-2 pb-2">Click to update a kid's details</p>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <div class="card-body">
+                    <button class="btn btn-danger" data-id="{{ kids.id }}" data-model="kid"><i class="fa-solid fa-person-circle-minus"></i></button>
+                    <p class="card-title pt-2 pb-2">Click to remove a kid from the list!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{% url 'journey' %}" class="btn btn-success my-2">Start Your Journey</a>
+    </div>
+</section>
+
+<!-- Features Section with Graphics -->
+<section id="features" class="container my-5">
+    <div class="row">
+        <!-- Feature 1 -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/gifts1.webp' %}" alt="Real-Time Tracking" class="img-fluid mb-3">
+            <h3>Real-Time Tracking</h3>
+            <p>Plot your exact route as you deliver presents around the world.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/santapoint.webp' %}" alt="Household Lists" class="img-fluid mb-3">
+            <h3>Household Lists</h3>
+            <p>View lists of households and see which children are receiving presents or coal.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/tree3.webp' %}" alt="Festive Updates" class="img-fluid mb-3">
+            <h3>Festive Updates</h3>
+            <p>Get merry updates and festive surprises throughout the night.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Full-Width Banner Graphic (Optional) -->
+<section class="full-width-banner text-center">
+    <!-- Optional overlay -->
+    <div class="banner-overlay d-flex justify-content-center align-items-center">
+        
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<div class="container my-5 text-center">
+    <h2>Join the Christmas Magic!</h2>
+    <p>Be part of the excitement and help! Santa deliver gifts to children around the world!</p>
+    <a href="#" class="btn btn-success btn-lg">Get Started</a>
+</div>
+
+<!-- Full-Width Footer Banner Graphic -->
+<section class="footer-banner text-center">
+    <!-- Optional overlay for better text visibility -->
+    <div class="footer-banner-overlay d-flex justify-content-center align-items-center">
+        <p class="text-white mb-0">Merry Christmas from Reindeer Radar!</p>
+    </div>
+</section>
 {% endblock %}

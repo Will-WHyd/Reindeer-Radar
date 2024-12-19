@@ -35,8 +35,15 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-willwhyd-reindeerradar-4958ydmonhb.ws.codeinstitute-ide.net', '8000-willwhyd-reindeerradar-grbzno7xz8c.ws.codeinstitute-ide.net', 
-'reindeer-radar-86c1994b9733.herokuapp.com', '8000-willwhyd-reindeerradar-1t11i3beztg.ws.codeinstitute-ide.net' , '.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-willwhyd-reindeerradar-4958ydmonhb.ws.codeinstitute-ide.net',
+    '8000-willwhyd-reindeerradar-grbzno7xz8c.ws.codeinstitute-ide.net',
+    'reindeer-radar-86c1994b9733.herokuapp.com', '.herokuapp.com',
+    '8000-willwhyd-reindeerradar-4958ydmonhb.ws.codeinstitute-ide.net',
+    '8000-willwhyd-reindeerradar-eehtry767rb.ws.codeinstitute-ide.net',
+    'reindeer-radar-86c1994b9733.herokuapp.com',
+    '.herokuapp.com'
+]
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 
                         'https://*.herokuapp.com']
@@ -152,8 +159,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
