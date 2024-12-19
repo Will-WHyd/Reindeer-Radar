@@ -1,131 +1,247 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Reindeer Radar App
 
-Welcome William Waldron-Hayden,
+![Main page](static/images/readme-images/mainpage.jpg)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Link to the deployed project: https://reindeer-radar-86c1994b9733.herokuapp.com/ 
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+This project was completed during the Hackathon 17-19 Dec at McKesson.
+Made by William, Paddy, Taybe, Borys.
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# Database Planning
 
-`python3 -m http.server`
+The planned ERD for the project: 
+![Entity Relation Diagram](static/media/erd.jpg)
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+# Purpose of this project
+The app is designed to the user (Santa Claus), who can login to the account, create the list of naughty and nice kids, check the number of presents or coals, delivered to the kids. 
+So, it's made on the model of a tracker/to-do list for the end user. The app solves the problem of making a proper and easy-to-use to-do list and having all the necessary things in one place for the proper tracking and control. 
+ 
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+# Target Audience
+ This project is targeted for :
+- Santa
+- Santa’s Little Helpers
+- Present thieves
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+# Wireframes
+We used Balsamiq to create the wireframes. The final product looks a bit different from the original plans, although it was a great benefit to keep the project go properly and keep us on the track. The extended features may be implemened in the next sprints. 
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+![Wireframe1](static/media//wireframe1.png)
 
-To log into the Heroku toolbelt CLI:
+![Wireframe2](static/media//wireframe2.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+# Agile methodology
+Throughout this project, an Agile approach was taken in order to develop the app. User Stories have different acceptance criteria. The project board, as well as the User Stories can be found in the kanban board linked [here](<https://github.com/users/Will-WHyd/projects/5/views/1>). Kanban Board has these sections: No Status, ToDo, In Progress, Done. Using the Agile approach, with clear tasks and User stories helped a lot to complete the project successfully.
 
-### Connecting your Mongo database
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+# Task Management
+The Kanban board not only tracked user stories but also functioned as a detailed task list. We used that to break down user stories into smaller, actionable tasks, providing clear and manageable development objectives. This approach allowed us a better progress tracking and improved collaboration within the team.
 
-------
 
-## Release History
+# User experience /  User Stories
+All the User Stories were mapped to the Kanban Board and you can see them here: 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- User Story#1 - Login and Logout #1 [UserStory1](<https://github.com/Will-WHyd/Reindeer-Radar/issues/1>)
+- User Story#2 - Create lists #2  [UserStory2](<https://github.com/Will-WHyd/Reindeer-Radar/issues/2>)
+- User Story#3 - Edit lists #3  [UserStory5](<https://github.com/Will-WHyd/Reindeer-Radar/issues/3>)
+- (User Story): Festive visual theme #4  [UserStory4](<https://github.com/Will-WHyd/Reindeer-Radar/issues/4>)
+- (User Story): Site Landing Page - UX/UI #5 [UserStory5](<(https://github.com/Will-WHyd/Reindeer-Radar/issues/5>)
+- (User Story): Adding Kids #6   [UserStory6](<https://github.com/Will-WHyd/Reindeer-Radar/issues/6>)
+- (User Story): Edit/Delete Kids #7 [UserStory7](<https://github.com/Will-WHyd/Reindeer-Radar/issues/7>)
+- (User Story): Progess Bar #8  [UserStory8](<https://github.com/Will-WHyd/Reindeer-Radar/issues/8>)
 
-**June 18, 2024,** Add Mongo back into template
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
 
-**May 28 2024:** Fix Mongo and Links installs
+### User Interface, Experience and Feedback
+This section shows how the user interacts with the app. If the app is user-friendly and easy-to-navigate.
 
-**April 26 2024:** Update node version to 16
 
-**September 20 2023:** Update Python version to 3.9.17.
+# Features 
+The app consists of such pages: 
+- Home 
+- Login 
+- Logout 
+- Journey Planner
+- The features to add, edit, delete the list of kids
+- The total number of kids and households.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Home
+The main landing page
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Login page
+Functionality for the user to login to the account
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Logout page
+Delete an existing expense.
+Functionality for the user to logout from the account
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Journey Planner 
+The user can add the list of nice and naughty kids + household, related to the kids. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## User-Friendly Interface
+The UI is user-friendly and easy to navigate for the user. 
+The user gets notification messages when he logs in / logs out
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Navbar 
+The navigation bar with main buttons: Home, Login, Logout, Journey Planner
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Secure authentication
+Robust authentication measures were taken place to safely store each users private data.
+Every user needs to authenticate themselves and login to their account before accessing the features and data.
+The authentication features include Register, Log in and Log out.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Additional Security Features:
+Users are redirected to the sign-in page if they attempt unauthorized actions. So unathorized users can not enter and manipulate other registered user's records. Unathorized users can not edit / delete the registered users' records, as such records are not visible for the unauthorized users. 
 
-------
 
-## FAQ about the uptime script
+## Future features
 
-**Why have you added this script?**
+Future features might include:
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- Display on top: Count how many Naughty vs Nice in the household, and sum up how many presents vs coal is needed for the journey.
+- Confirm if Households are visited (include an effect?)
+- Filter households by City? (Filter by timezone?)
+- Sound effects and jS elements.
+- Styled buttons and images - snowflake or present images for buttons.
+- Progress Bar – how many households are visited, how many are left.
+- Santa in sleigh going across screen.
+- Santa’s Playlist – link to spotify or youtube christmas playlist?
+- Super optional – kids name randomizer to generate kids with one click?
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+# Technologies Used
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- HTML 5
+- CSS 3
+- JavaScript
+- Django
+- Python
+- Bootstrap 5 
+- Balsamiq
+- GitHub 
+- Git 
+- Heroku 
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+## Django Packages
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- Gunicorn: As the server for Heroku
+- Psycopg2: As an adaptor for Python and DB
+- Crispy Forms: To style the forms
 
-**Can I opt out?**
+## Aditional Frameworks - Libraries - Programs to be Used
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- PEP8: PEP8 to validate all the Python code
+- W3C - HTML: W3C- HTML to validate all the HTML code
+- W3C - CSS: W3C - CSS to validate the CSS code
+- Google Chrome Dev Tools: To check App responsiveness and debugging
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+# Testing and Validation
+## Responsiveness
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+We used the dev tools on chrome to test some of the functionality. 
 
----
 
-Happy coding!
+# Testing and Validation
+Due to the lack of time and some of the team members being absent, we didn't have much time to work on the HTML, CSS Validation, as well as reponsiveness on different screens. 
+The plan is to work on the mentioned issues in the next sprints. 
+
+
+## Python and Django
+The lan is to work more with CI Python Linter to check the python scripts - in the next sprints. 
+
+
+## Known Bugs 
+
+- Currently there's a bug with a button shown at the bottom of the page, which we weren't able to fix, due to the lack of time. 
+The plan is to work on fixing that in the next sprints.
+
+![FooterBug](static/media/bug1.jpg)
+
+
+
+# Deployment 
+
+## Deployment Steps:
+
+### Creating the Heroku App
+
+- Begin by signing up or logging in to Heroku.
+- In the Heroku Dashboard, click on 'New' and then select 'Create New App'.
+- Choose a unique name for your project, like "Travel Buddies".
+- Select the EU region.
+- Click on "Create App".
+- In the "Deploy" tab, choose GitHub as the deployment method.
+- Connect your GitHub account and find/connect your GitHub repository.
+
+#### Setting Up Environment Variables
+
+- Create `env.py` in the top level of the Django app.
+- Import `os` in `env.py`.
+- Set up necessary environment variables in `env.py`, including the secret key and database URL.
+- Update `settings.py` to use environment variables for secret key and database.
+- Configure environment variables in the Heroku "Settings" tab under "Config Vars".
+- Migrate the models to the new database connection in the terminal.
+- Configure static files and templates directories in `settings.py`.
+- Add Heroku to the `ALLOWED_HOSTS` list.
+
+#### Creating Procfile and Pushing Changes
+
+- Create a `Procfile` in the top level directory.
+- Add the command to run the project in the `Procfile`.
+- Add, commit, and push the changes to GitHub.
+
+#### Heroku Deployment
+
+- In Heroku, navigate to the Deployment tab and deploy the branch manually.
+- Monitor the build logs for any errors.
+- Upon successful deployment, Heroku will display a link to the live site.
+- Make sure to resolve any deployment errors by adjusting the code as necessary.
+
+
+### Forking the Repository
+
+Forking the GitHub Repository allows you to create a copy of the original repository without affecting it. Follow these steps:
+
+- Log in to GitHub or create an account.
+- Visit the [repository link](https://github.com/Will-WHyd/Reindeer-Radar).
+- Click on "Fork" at the top of the repository.
+
+### Creating a Clone of the Repository
+
+Creating a clone enables you to make a local copy of the repository. Follow these steps:
+
+- Navigate to the [Project repository](https://github.com/Will-WHyd/Reindeer-Radar).
+- Click on the <>Code button.
+- Select the "HTTPS" option under the "Local" tab and copy the URL.
+- Open your terminal and change the directory to your desired location.
+- Use `git clone` followed by the copied repository URL.
+
+
+
+# Resources
+
+- [Code Institute Full Stack Development course materials](https://codeinstitute.net/) 
+- [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Stack overflow](https://stackoverflow.com/)
+
+
+# Credits and Acknowledgements
+
+- Great "thank you" to John Rearden - for the ideas, help with the errors fixing. 
+- LMS for teaching content: (<https://learn.codeinstitute.net/ci_program/fsbootcamp_with_hackathons_v2_2>)
+- Bootstrap technologies: (<https://getbootstrap.com/docs/4.0/components/card/>)
+- ChatGPT was used to fix the errors in the code. 
+- Photos were taken from: Pexels
+- Audio downloaded from: https://pixabay.com/sound-effects/search/santa%20claus/?pagi=4 
