@@ -11,7 +11,7 @@
         <a href="{% url 'add_house' %}" class="btn btn-primary mb-3">Add a new home to visit!</a>
 
 
-    {% if household_list %} 
+        {% if household_list %}
 
         {% for household in household_list %}
         <div class="col-md-8 mb-3 household-item card p-3">
@@ -28,9 +28,9 @@
 
                     <div class="col-md-3">
                         <button class="btn btn-info" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-{{household.id}}">More...</button>
+                            data-bs-target="#collapse-{{ household.id }}">More...</button>
                     </div>
-                    <div class="collapse" id="collapse-{{household.id}}">
+                    <div class="collapse" id="collapse-{{ household.id }}">
                         <div class="card-body">
                             <hr>
                             <div class="row">
@@ -57,19 +57,24 @@
         {% endfor %}
 
 
-            {% else %}
+        {% else %}
 
-            <p>You have no homes to visit.</p>
-            {% endif %}
-        </div>
-        <div class="col-md-2 mt-2 justify-content-start d-flex flex-column align-items-start">
-            
-            <a class="btn btn-primary btn-block" href="#"> Add household</a>
-
-            <div class="align-self-end"><h4>Total Presents Needed:</h4></div>
-        </div>
-        
+        <p>You have no homes to visit.</p>
+        {% endif %}
     </div>
+    <div class="col-md-2 mt-2 justify-content-start d-flex flex-column align-items-start">
+
+        <a class="btn btn-primary btn-block" href="#"> Add household</a>
+
+        <div class="align-self-end">
+            <p id="nice_counter">Number of presents needed: {{ nice_count }}</p>
+            <p id="naughty_counter">Number of coals needed: {{ naughty_count }}</p>
+        </div>
+
+
+    </div>
+ 
+</div>
 
 </div>
 
