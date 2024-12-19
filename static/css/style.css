@@ -227,12 +227,16 @@ body {
     z-index: 2;
 }
 
+.logged-in-msg {
+    margin-top: 3rem;
+    position:fixed;
+}
 
 main {
     z-index: 3; /* Ensure content appears above the overlay */
     position: relative;
     /* padding-top: 20px; */
-    margin-top: 20px;
+    margin-top: 55px;
 }
 
 .add-house-btn {
@@ -273,6 +277,8 @@ main {
     padding: 5px;
     border-radius: 5px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    
 }
 /* Enhanced Sparkle Animation */
 @keyframes sparkle {
@@ -320,7 +326,7 @@ input[type='submit'] {
 
 /* --- End of Sparkle Button Styling --- */
 .card-title {
-    color: black;
+    text-shadow: 2px 2px 5px #013220;
 }
 
 .present-counters {
