@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from .models import Household, Kid
 from .forms import *
@@ -156,3 +158,37 @@ def delete_kid(request, id):
             'You do not have permission!'
             )
         return redirect('journey')
+
+
+@csrf_exempt
+def update_visited(request):
+    if request.method == "POST":
+        try:
+            # Parse JSON data from the request body
+            data = json.loads(request.body)
+            household_id = data.get("household_id")
+            visited_status = data.get("visited")
+
+            # Validate input
+            if household_id is None or visited_status is None:
+                return JsonResponse({"success": False, "message": "Invalid data provided."}, status=400)
+
+            household = Household.objects.get(id=household_id, user=request.user)
+            household.visited = visited_status
+            household.save()
+
+            # Recalculate counts for nice and naughty kids
+            visited_households = Household.objects.filter(user=request.user, visited=False)
+            naughty_count = Kid.objects.filter(family__in=visited_households, behavior='Naughty').count()
+            nice_count = Kid.objects.filter(family__in=visited_households, behavior='Nice').count()
+
+            return JsonResponse({"success": True, "nice_count": nice_count, "naughty_count": naughty_count})
+
+        except Household.DoesNotExist:
+            return JsonResponse({"success": False, "message": "Household not found."}, status=404)
+        except json.JSONDecodeError:
+            return JsonResponse({"success": False, "message": "Invalid JSON data."}, status=400)
+        except Exception as e:
+            return JsonResponse({"success": False, "message": str(e)}, status=500)
+
+    return JsonResponse({"success": False, "message": "Invalid request method."}, status=405)
