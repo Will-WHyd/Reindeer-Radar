@@ -65,7 +65,10 @@ The app consists of such pages:
 - Home 
 - Login 
 - Logout 
-- Journey Planner 
+- Journey Planner
+- The features to add, edit, delete the list of kids
+- The total number of kids and households.
+
 
 
 ## Home
