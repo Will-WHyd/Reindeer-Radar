@@ -37,6 +37,8 @@
                         <input type="checkbox" class="visited-checkbox" id="{{ household.id }}-checkbox"
                             {% if household.visited %}checked{% endif %}>
                         <label for="{{ household.id }}-checkbox">Visited: {{ household.visited }}</label>
+                        <div class="spinner" id="{{ household.id }}-spinner" style="display: none;"></div>
+
                     </div>
 
                     <div class="col-md-3">
@@ -98,7 +100,7 @@
         </div>
         {% endfor %}
 
-        {% if none %}
+        {% if none %} 
         <p>You have no homes to visit.</p>
         {% endif %}
     </div>
